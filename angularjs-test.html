@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html ng-app="myApp">
+
+    <head>
+        <title>AngularJS テスト</title>
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
+        <script src="https://code.angularjs.org/1.7.7/angular.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+
+    <body class="container">
+        <div ng-controller="AppController">
+            <div>
+                <h1>登録フォーム</h1>
+                <form ng-submit="submit()">
+                    <div class="form-group">
+                        <label for="username">ユーザー名</label>
+                        <input type="text" class="form-control" id="username" placeholder="Twitterのユーザー名を入力" ng-model="username">
+                    </div>
+                    <button type="submit" class="btn btn-primary">登録</button>
+                </form>
+            </div>
+            <hr>
+            <div>
+                <h1>ユーザー一覧</h1>
+                <span ng-if="users.length === 0">ユーザーの登録がありません</span>
+                <ul>
+                    <li style="padding: 5px" ng-repeat="user in users">
+                        <div>
+                            <a href="{{user.url}}" target="_blank">{{user.username}}</a>
+                            <button type="button" class="btn btn-xs btn-danger" ng-click="deleteUser($index)">x</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </body>
+
+</html>
