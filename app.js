@@ -1,3 +1,4 @@
+console.log('HP-contents');
 angular.module('myApp',[])
     .controller('AppController',function($scope) {
         $scope.username = '';
